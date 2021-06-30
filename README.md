@@ -1,1 +1,1 @@
-# letshegoArticlesApp
+# simpleApiCallsApp
