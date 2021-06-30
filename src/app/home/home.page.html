@@ -1,0 +1,64 @@
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="toolBar-heading">
+      New York Times Most Popular Articles
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]= "true">
+
+  <ion-list class="list-body">
+    <div *ngIf="data" class = "result-space">
+      <ion-card *ngFor="let article of articleList[3]" class="list-card">
+        <ion-card-header class="card-name" style="padding-top: 4px;">
+          <p class="description-txt" style="text-align: right;">{{article.section | titlecase}}</p>
+          <h4 class="article-heading">{{article.title}}</h4>
+          <p class="description-txt">{{article.byline | titlecase}}</p>
+        </ion-card-header>
+        <ion-card-content class="card-content">
+          <p class="description-txt">
+         {{article.abstract}}
+          </p>
+          <p class="description-txt">Published:
+           {{article.published_date}}
+          </p>
+          <p class="url">
+           <a href={{article.url}}>View article</a> 
+          </p>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <div *ngIf="!data" class = "result-space">
+        <ion-item>
+          <ion-label>
+            <h3>
+              <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+            </h3>
+            <p>
+              <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+            </p>
+            <p>
+              <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+            </p>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            <h3>
+              <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+            </h3>
+            <p>
+              <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+            </p>
+            <p>
+              <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+            </p>
+          </ion-label>
+        </ion-item>
+    </div>
+  </ion-list>
+</ion-content>
+
